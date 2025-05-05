@@ -1,0 +1,24 @@
+INSERT INTO Game (game_id, game_image, name, year_published, min_players, max_players, playingtime, theme, description, game_mechanic, purchase_link) VALUES
+(1, 'game1.jpg', 'Catan', '1995', 3, 4, 60, 'Strategy', 'A classic resource-trading game', 'Tile Placement', 'https://example.com/catan'),
+(2, 'game2.jpg', 'Carcassonne', '2000', 2, 5, 45, 'Medieval', 'Place tiles to build cities and roads', 'Tile Placement', 'https://example.com/carcassonne'),
+(3, 'game3.jpg', 'Risk', '1959', 2, 6, 120, 'War', 'A game of global conquest', 'Dice Rolling', 'https://example.com/risk');
+
+INSERT INTO Category (category_id, category_name) VALUES
+(1, 'Strategy'),
+(2, 'Adventure'),
+(3, 'Family');
+
+INSERT INTO Users (user_id, password, email, username) VALUES
+(1, 'password123', 'alice@example.com', 'Alice'),
+(2, 'mypassword', 'bob@example.com', 'Bob'),
+(3, 'letmein', 'charlie@example.com', 'Charlie');
+
+INSERT INTO Review (game_id, user_id, review_id, review_text) VALUES
+(1, 1, 'R1_1', 'Amazing game, love the trading mechanics!'),
+(1, 2, 'R1_2', 'A bit long but very fun with friends.'),
+(2, 3, 'R2_3', 'Very relaxing and strategic gameplay.');
+
+INSERT INTO describes (game_id, category_id, game_category_id) VALUES
+(1, 1, 'G1C1'),
+(2, 3, 'G2C3'),
+(3, 2, 'G3C2');
