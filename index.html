@@ -1,0 +1,43 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Boardingpedia Minimal Vue App</title>
+  <!-- Include Vue 3 from CDN -->
+  <script src="https://unpkg.com/vue@3"></script>
+  <!-- Include Axios from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Review Counts Per Game</h1>
+    <ul>
+      <li v-for="game in games" :key="game.game_name">
+        <strong>{{ game.game_name }}</strong> - {{ game.review_count }} reviews
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    const { createApp } = Vue;
+    createApp({
+      data() {
+        return {
+          games: []  // Will hold the fetched review counts per game
+        };
+      },
+      mounted() {
+        // Fetch data from our Node.js backend on startup
+        axios.get('http://localhost:3000/review-counts')
+          .then(response => {
+            this.games = response.data;
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+          });
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>
