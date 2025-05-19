@@ -10,10 +10,10 @@ app.use(cors()); // Enable CORS to allow frontend cross-origin requests
 
 // Create a connection pool to your MySQL database
 const pool = mysql.createPool({
-    host: '127.0.0.1',  // Change from 'localhost' to '127.0.0.1'
-    port: 3306,         // Explicitly set the port to 3306
-    user: 'root',       // Update with your MySQL username
-    password: 'root',   // Update with your MySQL password
+    host: '127.0.0.1',  /
+    port: 3306,         
+    user: '',      
+    password: '',  
     database: 'boardingpedia'
   });
   
